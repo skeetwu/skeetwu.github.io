@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>Map &#8211; 攻城狮小武</title>
+	<atom:link href="/archives/tag/map/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description>tiaobug.com</description>
+	<lastBuildDate>Tue, 21 May 2019 03:15:43 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=4.8.12</generator>
+
+<image>
+	<url>/wp-content/uploads/2017/12/cropped-WP3-副本-32x32.jpg</url>
+	<title>Map &#8211; 攻城狮小武</title>
+	<link>/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>在高德地图上覆盖自定义的栅格图片，达到展示自己地图的效果</title>
+		<link>/archives/43.html</link>
+		<comments>/archives/43.html#respond</comments>
+		<pubDate>Tue, 12 Jan 2016 05:22:31 +0000</pubDate>
+		<dc:creator><![CDATA[武鹏]]></dc:creator>
+				<category><![CDATA[技术总结分享]]></category>
+		<category><![CDATA[Map]]></category>
+		<category><![CDATA[Tiles]]></category>
+		<category><![CDATA[地图]]></category>
+		<category><![CDATA[高德]]></category>
+
+		<guid isPermaLink="false">/?p=43</guid>
+		<description><![CDATA[最近有个需求，需要把手绘的地图覆盖到高德的地图上去，查阅了一下高德的API，发现 [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>最近有个需求，需要把手绘的地图覆盖到高德的地图上去，查阅了一下高德的API，发现可以做，同时也学习了地图的展现形式，解了以前的一个很大的疑惑，地图是如何存储和加载的。</p>
+<p>总结了一下技术要点：</p>
+<ol>
+<li>地图有三个重要参数XYZ，其中Z指的是缩放的级别，从1-18，也有到20的。</li>
+<li>在任一缩放级别下，每张图片的长宽都是256px。</li>
+<li>参数中的XY是指在当前缩放级别，把整个世界平铺成正方形，然后按照256px大小的进行切割，得到的图片的编号。</li>
+<li>当正常浏览的时候，浏览器会根据XYZ三个餐具确定要加载的图片。这是为什么网速慢慢的时候能看到地图是一块一块加载的。</li>
+</ol>
+<p>&nbsp;</p>
+<p>所以我们把手绘地图使用一个特殊的工具进行了切割，得到的就会是一部分的图片库，把这部分图片库进行二次加载覆盖原来的地图图片就可以了。</p>
+<p>具体代码：</p>
+<p>&nbsp;</p><pre class="crayon-plain-tag">&lt;!doctype html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta charset="utf-8"&gt;
+    &lt;meta http-equiv="X-UA-Compatible" content="IE=edge"&gt;
+    &lt;meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width"&gt;
+    &lt;title&gt;周村导览图-武鹏&lt;/title&gt;
+    &lt;link rel="stylesheet" href="http://cache.amap.com/lbs/static/main1119.css"/&gt;
+    &lt;script src="http://webapi.amap.com/maps?v=1.3&amp;key=608d75903d29ad471362f8c58c550daf&amp;plugin=AMap.Walking"&gt;&lt;/script&gt;
+    &lt;script type="text/javascript" src="http://cache.amap.com/lbs/static/addToolbar.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div id="container"&gt;&lt;/div&gt;
+&lt;script&gt;
+    var map = new AMap.Map('container', {
+        resizeEnable: true,
+        zoom:16,
+        maxZoomLevel:18,
+        minZoomLevel:14,
+        center: [117.842166,36.798194]
+    });
+
+
+    var IUULayer = null;
+    // 添加Google图层
+    function addIUULayer() {
+        IUULayer = new AMap.TileLayer({
+            // 图块取图地址
+            tileUrl: 'http://xxx.xxx.xxx.xxx/@/iuu/map-tiles/[z]/[x]/[y].png'
+        });
+        IUULayer.setMap(map);
+    }
+    //添加自定义的IUU瓦块图层
+    addIUULayer();
+    //限制显示区域
+    map.setLimitBounds(map.getBounds());
+
+    //添加定位插件
+    map.plugin('AMap.Geolocation', function() {
+        geolocation = new AMap.Geolocation({
+            enableHighAccuracy: true,//是否使用高精度定位，默认:true
+            timeout: 10000,          //超过10秒后停止定位，默认：无穷大
+            buttonOffset: new AMap.Pixel(10, 20),//定位按钮与设置的停靠位置的偏移量，默认：Pixel(10, 20)
+            //zoomToAccuracy: true,      //定位成功后调整地图视野范围使定位位置及精度范围视野内可见，默认：false
+            buttonPosition:'RB'
+        });
+        map.addControl(geolocation);
+        geolocation.getCurrentPosition();
+        AMap.event.addListener(geolocation, 'complete', onComplete);//返回定位信息
+        AMap.event.addListener(geolocation, 'error', onError);      //返回定位出错信息
+    });
+    //解析定位结果
+    function onComplete(data) {
+        var str=['定位成功'];
+        str.push('经度：' + data.position.getLng());
+        str.push('纬度：' + data.position.getLat());
+        str.push('精度：' + data.accuracy + ' 米');
+        str.push('是否经过偏移：' + (data.isConverted ? '是' : '否'));
+        str.join('&lt;br&gt;');
+
+    }
+    //解析定位错误信息
+    function onError(data) {
+
+    }
+
+    var walking = new AMap.Walking({
+        map: map,
+    }); 
+    walking.search([
+        {keyword: '周村古商城(北门)'},
+        {keyword: '淄博艺术博物馆'}
+    ]);
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre><p>&nbsp;</p>
+]]></content:encoded>
+			<wfw:commentRss>/archives/43.html/feed</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+	</channel>
+</rss>

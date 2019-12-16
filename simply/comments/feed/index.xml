@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>“攻城狮小武”的评论</title>
+	<atom:link href="/comments/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description>tiaobug.com</description>
+	<lastBuildDate>Sat, 22 Dec 2018 12:38:15 +0000</lastBuildDate>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=4.8.12</generator>
+	<item>
+		<title>妈妈易对《》的评论</title>
+		<link>/archives/445.html#comment-236</link>
+		<dc:creator><![CDATA[妈妈易]]></dc:creator>
+		<pubDate>Sat, 22 Dec 2018 12:38:15 +0000</pubDate>
+		<guid isPermaLink="false">/?p=445#comment-236</guid>
+		<description><![CDATA[人生如白驹过隙，每天浏览几篇博客，学习学习，充实自己！]]></description>
+		<content:encoded><![CDATA[<p>人生如白驹过隙，每天浏览几篇博客，学习学习，充实自己！</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>域名对《不得不这么干了》的评论</title>
+		<link>/archives/439.html#comment-171</link>
+		<dc:creator><![CDATA[域名]]></dc:creator>
+		<pubDate>Sat, 24 Nov 2018 10:21:49 +0000</pubDate>
+		<guid isPermaLink="false">/?p=439#comment-171</guid>
+		<description><![CDATA[时间真快，又到年底！正好有空，到这里看看！]]></description>
+		<content:encoded><![CDATA[<p>时间真快，又到年底！正好有空，到这里看看！</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>xing对《不得不这么干了》的评论</title>
+		<link>/archives/439.html#comment-141</link>
+		<dc:creator><![CDATA[xing]]></dc:creator>
+		<pubDate>Mon, 12 Nov 2018 01:50:37 +0000</pubDate>
+		<guid isPermaLink="false">/?p=439#comment-141</guid>
+		<description><![CDATA[来看看，因为，总能学到东西！]]></description>
+		<content:encoded><![CDATA[<p>来看看，因为，总能学到东西！</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>武鹏对《Maven项目使用profile自动替换项目中的resource的时候，如何正常使用eclipse的tomcat发布》的评论</title>
+		<link>/archives/333.html#comment-19</link>
+		<dc:creator><![CDATA[武鹏]]></dc:creator>
+		<pubDate>Wed, 15 Nov 2017 06:55:10 +0000</pubDate>
+		<guid isPermaLink="false">/?p=333#comment-19</guid>
+		<description><![CDATA[自己赞一波]]></description>
+		<content:encoded><![CDATA[<p>自己赞一波</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>哈哈对《JS早晚一统江湖  https://octoverse.github.com/》的评论</title>
+		<link>/archives/210.html#comment-17</link>
+		<dc:creator><![CDATA[哈哈]]></dc:creator>
+		<pubDate>Tue, 25 Apr 2017 12:00:04 +0000</pubDate>
+		<guid isPermaLink="false">/?p=210#comment-17</guid>
+		<description><![CDATA[diaodiao,膜拜]]></description>
+		<content:encoded><![CDATA[<p>diaodiao,膜拜</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>刘对《在潍坊安丘的景芝酒文化园看到一位大师的泥人，可以称得上惊艳，可惜没带相机。》的评论</title>
+		<link>/archives/81.html#comment-15</link>
+		<dc:creator><![CDATA[刘]]></dc:creator>
+		<pubDate>Thu, 06 Apr 2017 02:55:46 +0000</pubDate>
+		<guid isPermaLink="false">/?p=81#comment-15</guid>
+		<description><![CDATA[员工路过]]></description>
+		<content:encoded><![CDATA[<p>员工路过</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

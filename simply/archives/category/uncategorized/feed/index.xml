@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>技术总结分享 &#8211; 攻城狮小武</title>
+	<atom:link href="/archives/category/uncategorized/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description>tiaobug.com</description>
+	<lastBuildDate>Tue, 21 May 2019 03:15:43 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=4.8.12</generator>
+
+<image>
+	<url>/wp-content/uploads/2017/12/cropped-WP3-副本-32x32.jpg</url>
+	<title>技术总结分享 &#8211; 攻城狮小武</title>
+	<link>/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>typora+github，终于找到了趁手的笔记工具了</title>
+		<link>/archives/475.html</link>
+		<comments>/archives/475.html#respond</comments>
+		<pubDate>Tue, 21 May 2019 03:14:58 +0000</pubDate>
+		<dc:creator><![CDATA[武鹏]]></dc:creator>
+				<category><![CDATA[技术总结分享]]></category>
+
+		<guid isPermaLink="false">/?p=475</guid>
+		<description><![CDATA[能支持的功能 可以显示文件树结构 普通文本，支持markdown 用GIT实现了 [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>能支持的功能</p>
+<ul>
+<li>可以显示文件树结构</li>
+<li>普通文本，支持markdown</li>
+<li>用GIT实现了版本控制</li>
+<li>可以插入图片和资源</li>
+<li>可以全局搜索</li>
+<li>github支持了私有空间</li>
+<li>理论上没有空间大小限制</li>
+<li>通过window定时任务调用脚本定时备份</li>
+</ul>
+<p>再见，有道云笔记。</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+]]></content:encoded>
+			<wfw:commentRss>/archives/475.html/feed</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>一不小心，拿了一个证</title>
+		<link>/archives/469.html</link>
+		<comments>/archives/469.html#respond</comments>
+		<pubDate>Fri, 26 Apr 2019 07:54:00 +0000</pubDate>
+		<dc:creator><![CDATA[武鹏]]></dc:creator>
+				<category><![CDATA[技术总结分享]]></category>
+
+		<guid isPermaLink="false">/?p=469</guid>
+		<description><![CDATA[]]></description>
+				<content:encoded><![CDATA[<p><a href="/wp-content/uploads/2019/04/cert_mark_SSM_large_300px.png"><img class="alignnone size-full wp-image-470" src="/wp-content/uploads/2019/04/cert_mark_SSM_large_300px.png" alt="" width="300" height="300" srcset="/wp-content/uploads/2019/04/cert_mark_SSM_large_300px.png 300w, /wp-content/uploads/2019/04/cert_mark_SSM_large_300px-150x150.png 150w" sizes="(max-width: 300px) 100vw, 300px" /></a></p>
+]]></content:encoded>
+			<wfw:commentRss>/archives/469.html/feed</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>中老年程序员必备技能</title>
+		<link>/archives/460.html</link>
+		<comments>/archives/460.html#respond</comments>
+		<pubDate>Mon, 01 Apr 2019 07:26:12 +0000</pubDate>
+		<dc:creator><![CDATA[武鹏]]></dc:creator>
+				<category><![CDATA[技术总结分享]]></category>
+
+		<guid isPermaLink="false">/?p=460</guid>
+		<description><![CDATA[]]></description>
+				<content:encoded><![CDATA[<p><a href="/wp-content/uploads/2019/04/办公室八段锦.gif"><img class="alignnone size-full wp-image-461" src="/wp-content/uploads/2019/04/办公室八段锦.gif" alt="" width="1400" height="720" /></a></p>
+]]></content:encoded>
+			<wfw:commentRss>/archives/460.html/feed</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title></title>
+		<link>/archives/456.html</link>
+		<comments>/archives/456.html#respond</comments>
+		<pubDate>Sat, 29 Dec 2018 14:42:44 +0000</pubDate>
+		<dc:creator><![CDATA[武鹏]]></dc:creator>
+				<category><![CDATA[技术总结分享]]></category>
+
+		<guid isPermaLink="false">/?p=456</guid>
+		<description><![CDATA[Q：IT 工程师被叫「码农」时是否会不舒服？ A：我们好歹还是人，产品和设计已经 [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>Q：IT 工程师被叫「码农」时是否会不舒服？</p>
+<p>A：我们好歹还是人，产品和设计已经是狗了……</p>
+]]></content:encoded>
+			<wfw:commentRss>/archives/456.html/feed</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title></title>
+		<link>/archives/453.html</link>
+		<comments>/archives/453.html#respond</comments>
+		<pubDate>Thu, 27 Dec 2018 11:44:47 +0000</pubDate>
+		<dc:creator><![CDATA[武鹏]]></dc:creator>
+				<category><![CDATA[技术总结分享]]></category>
+
+		<guid isPermaLink="false">/?p=453</guid>
+		<description><![CDATA[我是一个C程序员，领导叫我去维护一个shell脚本，要求别删cache目录。我看 [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>我是一个C程序员，领导叫我去维护一个shell脚本，要求别删cache目录。我看了一下，原来写的是 rm -fr cache tmp 。我想这还不简单，上来就把cache注释掉：rm -fr /* cache */ tmp。完美！</p>
+]]></content:encoded>
+			<wfw:commentRss>/archives/453.html/feed</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>PyCharm/IntelliJ IDEA 编写make file时的报错*** missing separator.  Stop.</title>
+		<link>/archives/450.html</link>
+		<comments>/archives/450.html#respond</comments>
+		<pubDate>Mon, 24 Dec 2018 01:53:26 +0000</pubDate>
+		<dc:creator><![CDATA[武鹏]]></dc:creator>
+				<category><![CDATA[技术总结分享]]></category>
+
+		<guid isPermaLink="false">/?p=450</guid>
+		<description><![CDATA[被这个问题困扰了好大一会，查到的报错信息是make的命令前边需要加入tab键，但 [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>被这个问题困扰了好大一会，查到的报错信息是make的命令前边需要加入tab键，但是在PyCharm里即使加入了这个输入，仍然会报错*** missing separator. Stop.<br />
+对比gerrit里的代码change，确实能看到加入的tab输入没起作用，比别的行要少了一个红色箭头。<br />
+<a href="/wp-content/uploads/2018/12/a.png"><img class="alignnone size-medium wp-image-451" src="/wp-content/uploads/2018/12/a-300x62.png" alt="" width="300" height="62" srcset="/wp-content/uploads/2018/12/a-300x62.png 300w, /wp-content/uploads/2018/12/a.png 673w" sizes="(max-width: 300px) 100vw, 300px" /></a></p>
+<p>移动到VI里去编辑这个文件，发现竟然好用。</p>
+<p>最后只能怀疑是IDE的问题了，最后发现果然是这样，PyCharm/IntelliJ IDEA 默认是没有开启tab支持的。</p>
+<p>需要在setting&#8211;Editor&#8211;CodeStyle&#8211;Other file types&#8211;&#8220;use tab character&#8221;:enable.</p>
+<p>再次提交，搞定了。</p>
+]]></content:encoded>
+			<wfw:commentRss>/archives/450.html/feed</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title></title>
+		<link>/archives/445.html</link>
+		<comments>/archives/445.html#comments</comments>
+		<pubDate>Fri, 30 Nov 2018 07:56:16 +0000</pubDate>
+		<dc:creator><![CDATA[武鹏]]></dc:creator>
+				<category><![CDATA[技术总结分享]]></category>
+
+		<guid isPermaLink="false">/?p=445</guid>
+		<description><![CDATA[]]></description>
+				<content:encoded><![CDATA[<p><a href="/wp-content/uploads/2018/11/DsGdFQkVsAActuw.jpg"><img class="alignnone size-large wp-image-446" src="/wp-content/uploads/2018/11/DsGdFQkVsAActuw-1024x768.jpg" alt="" width="465" height="349" srcset="/wp-content/uploads/2018/11/DsGdFQkVsAActuw-1024x768.jpg 1024w, /wp-content/uploads/2018/11/DsGdFQkVsAActuw-300x225.jpg 300w, /wp-content/uploads/2018/11/DsGdFQkVsAActuw-768x576.jpg 768w, /wp-content/uploads/2018/11/DsGdFQkVsAActuw.jpg 1200w" sizes="(max-width: 465px) 100vw, 465px" /></a></p>
+]]></content:encoded>
+			<wfw:commentRss>/archives/445.html/feed</wfw:commentRss>
+		<slash:comments>1</slash:comments>
+		</item>
+		<item>
+		<title>Python并发速查表</title>
+		<link>/archives/442.html</link>
+		<comments>/archives/442.html#respond</comments>
+		<pubDate>Fri, 30 Nov 2018 07:44:14 +0000</pubDate>
+		<dc:creator><![CDATA[武鹏]]></dc:creator>
+				<category><![CDATA[技术总结分享]]></category>
+
+		<guid isPermaLink="false">/?p=442</guid>
+		<description><![CDATA[https://www.ctolib.com/cheatsheets-Pytho [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>https://www.ctolib.com/cheatsheets-Python-Concurrency-Cheatsheet.html#articleHeader8</p>
+]]></content:encoded>
+			<wfw:commentRss>/archives/442.html/feed</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>不得不这么干了</title>
+		<link>/archives/439.html</link>
+		<comments>/archives/439.html#comments</comments>
+		<pubDate>Wed, 07 Nov 2018 12:00:03 +0000</pubDate>
+		<dc:creator><![CDATA[武鹏]]></dc:creator>
+				<category><![CDATA[技术总结分享]]></category>
+
+		<guid isPermaLink="false">/?p=439</guid>
+		<description><![CDATA[[crayon-5df716ad7a013939009264/] &#160;]]></description>
+				<content:encoded><![CDATA[<p></p><pre class="crayon-plain-tag">echo "
+alias sodu='sudo'
+alias soud='sudo'
+alias suod='sudo'
+alias sdou='sudo'
+alias sduo='sudo'
+" &gt;&gt; .bashrc</pre><p>&nbsp;</p>
+]]></content:encoded>
+			<wfw:commentRss>/archives/439.html/feed</wfw:commentRss>
+		<slash:comments>2</slash:comments>
+		</item>
+		<item>
+		<title>升级了一下自己的Mac本，Mojave很赞，值得更新</title>
+		<link>/archives/434.html</link>
+		<comments>/archives/434.html#respond</comments>
+		<pubDate>Fri, 28 Sep 2018 13:20:21 +0000</pubDate>
+		<dc:creator><![CDATA[武鹏]]></dc:creator>
+				<category><![CDATA[技术总结分享]]></category>
+
+		<guid isPermaLink="false">/?p=434</guid>
+		<description><![CDATA[]]></description>
+				<content:encoded><![CDATA[]]></content:encoded>
+			<wfw:commentRss>/archives/434.html/feed</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+	</channel>
+</rss>
