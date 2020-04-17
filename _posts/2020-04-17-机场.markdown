@@ -1,8 +1,10 @@
 ---
 layout: post
-title:  "Here, just here!"
-date:   2020-04-01 00:28:28 +0800
-categories: first init
+title:  "不愿折腾了"
+date:   2020-04-17 00:28:28 +0800
+categories: Tech
 ---
 
-Glad to see U!
+之前的自己搭的梯子又挂了，虽然白天能在公司官翻，但是手机，PC有写尴尬。<br/>
+听朋友推荐，https://pud.life/aff/dnzM， only v2ray，这个机场感觉不错，速度很稳定，联通的测试延时能到10ms，最近还有折扣，￥44一年，每个月128G流量，128 Mbps，两台设备。
+值得入手！
