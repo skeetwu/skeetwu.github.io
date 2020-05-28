@@ -1,0 +1,60 @@
+---
+layout: post
+title:  "检查磁盘的IO性能是否能匹配ETCD的需求"
+date:   2020-06-28 11:14:40 +0800
+tags: ETCD FIO fio
+categories: Tech
+---
+
+<https://www.ibm.com/cloud/blog/using-fio-to-tell-whether-your-storage-is-fast-enough-for-etcd>
+
+```bash
+# mkdir test-data
+# fio --rw=write --ioengine=sync --fdatasync=1 --directory=test-data --size=22m --bs=2300 --name=mytest
+mytest: (g=0): rw=write, bs=(R) 2300B-2300B, (W) 2300B-2300B, (T) 2300B-2300B, ioengine=sync, iodepth=1
+fio-3.7
+Starting 1 process
+mytest: Laying out IO file (1 file / 22MiB)
+Jobs: 1 (f=1): [W(1)][100.0%][r=0KiB/s,w=85KiB/s][r=0,w=38 IOPS][eta 00m:00s]
+mytest: (groupid=0, jobs=1): err= 0: pid=23832: Thu May 28 10:04:19 2020
+  write: IOPS=36, BW=81.9KiB/s (83.9kB/s)(21.0MiB/274912msec)
+    clat (usec): min=11, max=12185, avg=33.60, stdev=182.66
+     lat (usec): min=12, max=12187, avg=36.18, stdev=182.68
+    clat percentiles (usec):
+     |  1.00th=[   17],  5.00th=[   21], 10.00th=[   22], 20.00th=[   23],
+     | 30.00th=[   24], 40.00th=[   27], 50.00th=[   30], 60.00th=[   31],
+     | 70.00th=[   32], 80.00th=[   35], 90.00th=[   42], 95.00th=[   51],
+     | 99.00th=[   69], 99.50th=[   80], 99.90th=[  125], 99.95th=[  775],
+     | 99.99th=[11207]
+   bw (  KiB/s): min=    4, max=  166, per=100.00%, avg=81.37, stdev=39.59, samples=549
+   iops        : min=    2, max=   74, avg=36.43, stdev=17.59, samples=549
+  lat (usec)   : 20=5.02%, 50=89.91%, 100=4.93%, 250=0.07%, 500=0.01%
+  lat (usec)   : 750=0.01%, 1000=0.03%
+  lat (msec)   : 10=0.01%, 20=0.02%
+  fsync/fdatasync/sync_file_range:
+    sync (msec): min=2, max=464, avg=27.36, stdev=31.73
+    sync percentiles (msec):
+     |  1.00th=[    3],  5.00th=[    5], 10.00th=[    6], 20.00th=[    8],
+     | 30.00th=[   11], 40.00th=[   19], 50.00th=[   22], 60.00th=[   24],
+     | 70.00th=[   26], 80.00th=[   34], 90.00th=[   57], 95.00th=[   84],
+     | 99.00th=[  159], 99.50th=[  220], 99.90th=[  313], 99.95th=[  330],
+     | 99.99th=[  414]
+  cpu          : usr=0.10%, sys=0.40%, ctx=24233, majf=0, minf=13
+  IO depths    : 1=200.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwts: total=0,10029,0,0 short=10029,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+  WRITE: bw=81.9KiB/s (83.9kB/s), 81.9KiB/s-81.9KiB/s (83.9kB/s-83.9kB/s), io=21.0MiB (23.1MB), run=274912-274912msec
+
+Disk stats (read/write):
+  vda: ios=0/26445, merge=0/12218, ticks=0/359055, in_queue=343720, util=9.48%
+
+
+```
+
+All you have to do then is look at the output and check if the 99th percentile of [fdatasync](https://linux.die.net/man/2/fdatasync) durations is less than 10ms. If that is the case, then your storage is fast enough.  Here is an example output:
+
+主要是看fsync/fdatasync/sync_file_range的结果，单位是毫秒，如果99.00%的少于10毫秒，就说明这个disk是没问题，反之容易引起ETCD读写的问题。
