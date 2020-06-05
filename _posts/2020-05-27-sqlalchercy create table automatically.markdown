@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "sqlalchercy can not create table automatically"
-date:   2020-06-27 11:14:40 +0800
+date:   2020-05-27 11:14:40 +0800
 tags: sqlalchercy 无法自动创建表
 categories: Tech
 ---
