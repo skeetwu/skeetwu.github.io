@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "检查磁盘的IO性能是否能匹配ETCD的需求"
-date:   2020-06-28 11:14:40 +0800
+date:   2020-05-28 11:14:40 +0800
 tags: ETCD FIO fio
 categories: Tech
 ---

@@ -1,0 +1,22 @@
+---
+layout: post
+title:  "分享几个前端大牛的site"
+date:   2020-05-28 11:14:40 +0800
+tags: FE js
+categories: Tech
+---
+
+<https://bruno-simon.com/>
+
+<https://prior.co.jp/>
+
+<https://www.orano.group/experience/innovation/en/slider>
+
+<https://thenewmobileworkforce.imm-g-prod.com/>
+
+<http://gleec.imm-g-prod.com/instant-messages>
+
+<https://www.refletcommunication.com/en/youth>
+
+
+
