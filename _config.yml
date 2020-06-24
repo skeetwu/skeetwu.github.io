@@ -25,7 +25,7 @@ github_username:  skeetwu
 
 # Build settings
 markdown: kramdown
-theme: minima
+remote_theme: benbalter/retlab
 plugins:
   - jekyll-feed
 
