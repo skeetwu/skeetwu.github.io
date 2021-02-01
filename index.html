@@ -181,6 +181,63 @@
         
           <section id="main" style="float:none;">
   
+    <article id="post-2021-02-01-ETF"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2021/02/01/2021-02-01-ETF/">一个从天天基金网上爬取信息的工具</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2021/02/01/2021-02-01-ETF/" class="article-date">
+	  <time datetime="2021-02-01T01:58:28.000Z" itemprop="datePublished">2021-02-01</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/Tech/">Tech</a>
+
+      
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>给朋友帮忙，需要根据天天基金–场内交易基金净值折价率一览表把每个基金的前十名的股票持仓信息做到同一个表格中，用于后面的基金分析和挑选。</p>
+<p>列表： <a href="http://fund.eastmoney.com/cnjy_jzzzl.html" target="_blank" rel="noopener">http://fund.eastmoney.com/cnjy_jzzzl.html</a></p>
+<p>总结几点：</p>
+<ol>
+<li>Python操作Excel还是略有些复杂，尤其是需要在表格中加入超链接，如果目的最后是为了得到表格，那么可以把数据生成一个网页table，然后直接拷贝到表格中，数据会很规整。</li>
+<li>Chrmoet的debug工具中，可以直接选中DOM元素，然后右键拷贝它的XPAHT。</li>
+<li>Python的lxml包在解析xpath时是无法识别tbody标签的，所以如果拷贝出来的XPATH如果有tbody，一定要删掉，否则解析的结果是[]。</li>
+<li>天天基金网的网页的元素会因为不同的基金导致取出来的元素的XPATH略有不同，真是坑。</li>
+</ol>
+<p>代码地址： <a href="https://github.com/skeetwu/ETF" target="_blank" rel="noopener">https://github.com/skeetwu/ETF</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
     <article id="post-2021-01-19-老外的中文"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
@@ -609,55 +666,6 @@
       
         <p>从每一帧都可以当壁纸的电影中截了一帧，做张壁纸。</p>
 <p><img src="/images/iphone-desktop.jpg" alt="bash"></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-      
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
-    <article id="post-2020-08-21-来自火线的工单"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2020/08/21/2020-08-21-%E6%9D%A5%E8%87%AA%E7%81%AB%E7%BA%BF%E7%9A%84%E5%B7%A5%E5%8D%95/">来自火线的工单</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2020/08/21/2020-08-21-%E6%9D%A5%E8%87%AA%E7%81%AB%E7%BA%BF%E7%9A%84%E5%B7%A5%E5%8D%95/" class="article-date">
-	  <time datetime="2020-08-21T01:14:40.000Z" itemprop="datePublished">2020-08-21</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/Common/">Common</a>
-
-      
-      
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>今天一上班，收到一条来自火线的工单~</p>
-<p><img src="/images/lebanon.png" alt="ticket"></p>
 
       
     </div>

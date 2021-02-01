@@ -181,6 +181,61 @@
         
           <section id="main" style="float:none;">
   
+    <article id="post-2020-05-27-sqlalchercy create table automatically"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2020/05/27/2020-05-27-sqlalchercy%20create%20table%20automatically/">sqlalchercy can not create table automatically</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2020/05/27/2020-05-27-sqlalchercy%20create%20table%20automatically/" class="article-date">
+	  <time datetime="2020-05-27T03:14:40.000Z" itemprop="datePublished">2020-05-27</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/Tech/">Tech</a>
+
+      
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>按照教程书写python的定义表的model文件，正常情况下是没有问题，能自动映射成数据库里的表，但是有一种情况就是无法生成。</p>
+<p>例如下面的代码的路径是，ssms/utils/db_tool.py</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> contextlib <span class="keyword">import</span> contextmanager</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> sqlalchemy <span class="keyword">import</span> create_engine</span><br><span class="line"><span class="keyword">from</span> sqlalchemy.orm <span class="keyword">import</span> sessionmaker</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> ssms.utils.db_setting <span class="keyword">import</span> SSMS_DB_Base</span><br><span class="line"></span><br><span class="line">SQLALCHEMY_DATABASE_URI = <span class="string">'sqlite:///db/accounts.db'</span></span><br><span class="line"></span><br><span class="line">engine = create_engine(SQLALCHEMY_DATABASE_URI, echo=<span class="literal">True</span>)  <span class="comment"># Connect to database</span></span><br><span class="line"><span class="comment"># engine = create_engine(SQLALCHEMY_DATABASE_URI)  # Connect to database</span></span><br><span class="line">SSMS_DB_Base.metadata.create_all(engine)  <span class="comment"># Create models</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@contextmanager</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">session_scope</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="string">"""Provide a transactional scope around a series of operations."""</span></span><br><span class="line">    s = sessionmaker(bind=engine)()</span><br><span class="line">    s.expire_on_commit = <span class="literal">False</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="keyword">yield</span> s</span><br><span class="line">        s.commit()</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        s.rollback()</span><br><span class="line">        <span class="keyword">raise</span></span><br><span class="line">    <span class="keyword">finally</span>:</span><br><span class="line">        s.close()</span><br></pre></td></tr></table></figure>
+
+<p>所有的model的文件的路径是ssms/beans/*.py</p>
+<p>然后就会发现，有些表可以映射，有些表无法映射，非常之奇怪。最后猜测是python的文件加载顺序导致的，所以在每个model和db_tool.py里加了一个print 命令打印点东西到控制台，证实在db_tool.py前加载的都可以映射，在后面加载的就没法映射的了，那么如何解呢？</p>
+<p>在ssms/utils/<strong>init</strong>.py文件里全部import一遍所有的model，那么这样就能保证在ssms/utils/目录下，加载db_tool.py之前所有的model都被加载好了，这样就可以全部映射了。</p>
+<p>亲测好用！</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
     <article id="post-2020-05-15-SSH port"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
