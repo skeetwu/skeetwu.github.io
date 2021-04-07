@@ -181,6 +181,58 @@
         
           <section id="main" style="float:none;">
   
+    <article id="post-2020-05-28-检查磁盘的IO性能是否能匹配ETCD的需求"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2020/05/28/2020-05-28-%E6%A3%80%E6%9F%A5%E7%A3%81%E7%9B%98%E7%9A%84IO%E6%80%A7%E8%83%BD%E6%98%AF%E5%90%A6%E8%83%BD%E5%8C%B9%E9%85%8DETCD%E7%9A%84%E9%9C%80%E6%B1%82/">检查磁盘的IO性能是否能匹配ETCD的需求</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2020/05/28/2020-05-28-%E6%A3%80%E6%9F%A5%E7%A3%81%E7%9B%98%E7%9A%84IO%E6%80%A7%E8%83%BD%E6%98%AF%E5%90%A6%E8%83%BD%E5%8C%B9%E9%85%8DETCD%E7%9A%84%E9%9C%80%E6%B1%82/" class="article-date">
+	  <time datetime="2020-05-28T03:14:40.000Z" itemprop="datePublished">2020-05-28</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/Tech/">Tech</a>
+
+      
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="https://www.ibm.com/cloud/blog/using-fio-to-tell-whether-your-storage-is-fast-enough-for-etcd" target="_blank" rel="noopener">https://www.ibm.com/cloud/blog/using-fio-to-tell-whether-your-storage-is-fast-enough-for-etcd</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># mkdir test-data</span></span><br><span class="line"><span class="comment"># fio --rw=write --ioengine=sync --fdatasync=1 --directory=test-data --size=22m --bs=2300 --name=mytest</span></span><br><span class="line">mytest: (g=0): rw=write, bs=(R) 2300B-2300B, (W) 2300B-2300B, (T) 2300B-2300B, ioengine=sync, iodepth=1</span><br><span class="line">fio-3.7</span><br><span class="line">Starting 1 process</span><br><span class="line">mytest: Laying out IO file (1 file / 22MiB)</span><br><span class="line">Jobs: 1 (f=1): [W(1)][100.0%][r=0KiB/s,w=85KiB/s][r=0,w=38 IOPS][eta 00m:00s]</span><br><span class="line">mytest: (groupid=0, <span class="built_in">jobs</span>=1): err= 0: pid=23832: Thu May 28 10:04:19 2020</span><br><span class="line">  write: IOPS=36, BW=81.9KiB/s (83.9kB/s)(21.0MiB/274912msec)</span><br><span class="line">    clat (usec): min=11, max=12185, avg=33.60, stdev=182.66</span><br><span class="line">     lat (usec): min=12, max=12187, avg=36.18, stdev=182.68</span><br><span class="line">    clat percentiles (usec):</span><br><span class="line">     |  1.00th=[   17],  5.00th=[   21], 10.00th=[   22], 20.00th=[   23],</span><br><span class="line">     | 30.00th=[   24], 40.00th=[   27], 50.00th=[   30], 60.00th=[   31],</span><br><span class="line">     | 70.00th=[   32], 80.00th=[   35], 90.00th=[   42], 95.00th=[   51],</span><br><span class="line">     | 99.00th=[   69], 99.50th=[   80], 99.90th=[  125], 99.95th=[  775],</span><br><span class="line">     | 99.99th=[11207]</span><br><span class="line">   bw (  KiB/s): min=    4, max=  166, per=100.00%, avg=81.37, stdev=39.59, samples=549</span><br><span class="line">   iops        : min=    2, max=   74, avg=36.43, stdev=17.59, samples=549</span><br><span class="line">  lat (usec)   : 20=5.02%, 50=89.91%, 100=4.93%, 250=0.07%, 500=0.01%</span><br><span class="line">  lat (usec)   : 750=0.01%, 1000=0.03%</span><br><span class="line">  lat (msec)   : 10=0.01%, 20=0.02%</span><br><span class="line">  fsync/fdatasync/sync_file_range:</span><br><span class="line">    sync (msec): min=2, max=464, avg=27.36, stdev=31.73</span><br><span class="line">    sync percentiles (msec):</span><br><span class="line">     |  1.00th=[    3],  5.00th=[    5], 10.00th=[    6], 20.00th=[    8],</span><br><span class="line">     | 30.00th=[   11], 40.00th=[   19], 50.00th=[   22], 60.00th=[   24],</span><br><span class="line">     | 70.00th=[   26], 80.00th=[   34], 90.00th=[   57], 95.00th=[   84],</span><br><span class="line">     | 99.00th=[  159], 99.50th=[  220], 99.90th=[  313], 99.95th=[  330],</span><br><span class="line">     | 99.99th=[  414]</span><br><span class="line">  cpu          : usr=0.10%, sys=0.40%, ctx=24233, majf=0, minf=13</span><br><span class="line">  IO depths    : 1=200.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, &gt;=64=0.0%</span><br><span class="line">     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, &gt;=64=0.0%</span><br><span class="line">     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, &gt;=64=0.0%</span><br><span class="line">     issued rwts: total=0,10029,0,0 short=10029,0,0,0 dropped=0,0,0,0</span><br><span class="line">     latency   : target=0, window=0, percentile=100.00%, depth=1</span><br><span class="line"></span><br><span class="line">Run status group 0 (all <span class="built_in">jobs</span>):</span><br><span class="line">  WRITE: bw=81.9KiB/s (83.9kB/s), 81.9KiB/s-81.9KiB/s (83.9kB/s-83.9kB/s), io=21.0MiB (23.1MB), run=274912-274912msec</span><br><span class="line"></span><br><span class="line">Disk stats (<span class="built_in">read</span>/write):</span><br><span class="line">  vda: ios=0/26445, merge=0/12218, ticks=0/359055, in_queue=343720, util=9.48%</span><br></pre></td></tr></table></figure>
+
+<p>All you have to do then is look at the output and check if the 99th percentile of <a href="https://linux.die.net/man/2/fdatasync" target="_blank" rel="noopener">fdatasync</a> durations is less than 10ms. If that is the case, then your storage is fast enough.  Here is an example output:</p>
+<p>主要是看fsync/fdatasync/sync_file_range的结果，单位是毫秒，如果99.00%的少于10毫秒，就说明这个disk是没问题，反之容易引起ETCD读写的问题。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
     <article id="post-2020-06-05-分享几个前端大牛的site"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
