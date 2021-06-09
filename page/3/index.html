@@ -181,6 +181,55 @@
         
           <section id="main" style="float:none;">
   
+    <article id="post-2020-06-18-编译python为pyc"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2020/06/18/2020-06-18-%E7%BC%96%E8%AF%91python%E4%B8%BApyc/">python编译为pyc</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2020/06/18/2020-06-18-%E7%BC%96%E8%AF%91python%E4%B8%BApyc/" class="article-date">
+	  <time datetime="2020-06-18T06:00:00.000Z" itemprop="datePublished">2020-06-18</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/Tech/">Tech</a>
+
+      
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#递归编译当前目录下的所有code为pyc，-b表示在原位置生成，不放到pycache里</span></span><br><span class="line">python3 -m compileall -b ./</span><br><span class="line"><span class="comment">#删除掉所有的py文件</span></span><br><span class="line">find . -name “*.py” |xargs rm -rf</span><br><span class="line"><span class="comment">#删除掉换成文件</span></span><br><span class="line">find . -name “pycache” |xargs rm -rf</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
     <article id="post-2020-06-17-bash 快捷键"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     

@@ -181,6 +181,53 @@
         
           <section id="main" style="float:none;">
   
+    <article id="post-2021-06-09-提起千斤重放下二两轻"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2021/06/09/2021-06-09-%E6%8F%90%E8%B5%B7%E5%8D%83%E6%96%A4%E9%87%8D%E6%94%BE%E4%B8%8B%E4%BA%8C%E4%B8%A4%E8%BD%BB/">提起千斤重，放下二两轻</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2021/06/09/2021-06-09-%E6%8F%90%E8%B5%B7%E5%8D%83%E6%96%A4%E9%87%8D%E6%94%BE%E4%B8%8B%E4%BA%8C%E4%B8%A4%E8%BD%BB/" class="article-date">
+	  <time datetime="2021-06-09T08:40:16.000Z" itemprop="datePublished">2021-06-09</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/share/">share</a>
+
+      
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
     <article id="post-2021-05-27-在python字典组成的数组中，按照其中的字典的一个key的值进行排序"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
@@ -672,56 +719,6 @@
       
         <p>一张图记住快捷键</p>
 <p><img src="/images/bash1.jpg" alt="bash快捷键"></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-      
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
-    <article id="post-2020-10-26-Ansible从一个target node取值并赋值给所有的target node"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2020/10/26/2020-10-26-Ansible%E4%BB%8E%E4%B8%80%E4%B8%AAtarget%20node%E5%8F%96%E5%80%BC%E5%B9%B6%E8%B5%8B%E5%80%BC%E7%BB%99%E6%89%80%E6%9C%89%E7%9A%84target%20node/">Ansible从一个target node取值并赋值给所有的target node</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2020/10/26/2020-10-26-Ansible%E4%BB%8E%E4%B8%80%E4%B8%AAtarget%20node%E5%8F%96%E5%80%BC%E5%B9%B6%E8%B5%8B%E5%80%BC%E7%BB%99%E6%89%80%E6%9C%89%E7%9A%84target%20node/" class="article-date">
-	  <time datetime="2020-10-26T07:10:00.000Z" itemprop="datePublished">2020-10-26</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/Tech/">Tech</a>
-
-      
-      
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Ansible操作三个node，其中有一个pod(app_api_pod_name)运行其中的一个上。<br>Step 1 需要判断这个pod中有没有存在一个文件，这个地方希望只在第一个node1上执行就可以了，这样其他的node都会skip，<br>如果是这样skip其他的node的时候，仍然会进行赋值，导致最后的结果是CA_exist无法registe，除了node1，其他node拿到CA_exist都是空值。<br>所以这个地方就理解了，ansible的所有变量，包括常量和临时变量都是按node进行区分和隔离的，不能共享。</p>
-<p>Step 2 就是用来解决这个问题，在其他的node的变量组把这个值给赋值上，关键取值 hostvars[groups[‘role_control’][0]].CA_exist.rc</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="bullet">-</span> <span class="attr">name:</span> <span class="string">check</span> <span class="string">if</span> <span class="string">CA</span> <span class="string">exist</span> <span class="string">in</span> <span class="string">app-api</span></span><br><span class="line">  <span class="attr">become:</span> <span class="literal">yes</span></span><br><span class="line">  <span class="attr">shell:</span> <span class="string">"kubectl exec -it <span class="template-variable">&#123;&#123; app_api_pod_name.stdout_lines[0] &#125;&#125;</span> cat /etc/pki/ca-trust/source/anchors/xxxca.pem -n xxxx"</span></span><br><span class="line">  <span class="attr">ignore_errors:</span> <span class="literal">yes</span></span><br><span class="line">  <span class="attr">register:</span> <span class="string">CA_exist</span></span><br><span class="line">  <span class="attr">when:</span> <span class="string">"inventory_hostname == groups['role_control'][0] and app_api_pod_name is defined"</span></span><br><span class="line"></span><br><span class="line"><span class="bullet">-</span> <span class="attr">name:</span> <span class="string">set</span> <span class="string">if</span> <span class="string">need</span> <span class="string">to</span> <span class="string">copy</span> <span class="string">CA</span></span><br><span class="line">  <span class="attr">set_fact:</span></span><br><span class="line">    <span class="attr">need_copy:</span> <span class="string">"<span class="template-variable">&#123;&#123; hostvars[groups['role_control'][0]].CA_exist.rc &#125;&#125;</span>"</span></span><br><span class="line">  <span class="attr">when:</span> <span class="string">"hostvars[groups['role_control'][0]].CA_exist is defined and hostvars[groups['role_control'][0]].CA_exist.rc == 1"</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
